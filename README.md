@@ -61,3 +61,16 @@ If Android already exists, use:
 - `npm run cap:sync` (or `npm run cap-sync`)
 - `npm run cap:open:android` (or `npm run cap-open-android`)
 
+### Android rendering checklist
+
+If the app opens in Android Studio but looks broken or partially unstyled:
+
+1. Rebuild web assets and resync into Android:
+   - `npm run build`
+   - `npm run cap:sync`
+2. In Android Studio, run **Build > Clean Project** and then **Run** again.
+3. Ensure the Android WebView has internet access on first launch (this app currently uses Tailwind CDN from `index.html`).
+4. If styles still look clipped under the status bar, update to this version (it adds `viewport-fit=cover` and safe-area padding support).
+
+> Tip: after each web code change, always run `npm run build:mobile` before running from Android Studio.
+

@@ -348,7 +348,7 @@ const App: React.FC = () => {
   const gridAspectRatio = level?.gridSize ? level.gridSize.cols / level.gridSize.rows : 1;
 
   return (
-    <div className={`fixed inset-0 transition-colors duration-300 ${showDesync ? 'bg-rose-950/40' : 'bg-[#020617]'} text-white flex flex-col items-center justify-between py-4 px-2 overflow-hidden touch-none`}>
+    <div className={`fixed inset-0 safe-top safe-bottom transition-colors duration-300 ${showDesync ? 'bg-rose-950/40' : 'bg-[#020617]'} text-white flex flex-col items-center justify-between py-4 px-2 overflow-hidden touch-none`}>
       {/* Dynamic Background */}
       <div className="fixed inset-0 pointer-events-none perspective-2000 opacity-20 z-0">
         <div className={`absolute top-1/4 left-1/4 w-[250px] md:w-[500px] h-[250px] md:h-[500px] ${t.bgPulse1} rounded-full blur-[80px] md:blur-[150px] animate-pulse`} />
