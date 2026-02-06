@@ -1,0 +1,5 @@
+{
+  "name": "Memory Pulse 3D",
+  "description": "A high-stakes 3D memory tile game where the board shuffles every few seconds, challenging your spatial and pattern recognition skills.",
+  "requestFramePermissions": []
+}

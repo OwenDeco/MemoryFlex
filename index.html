@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Pulse 3D: Neural Gauntlet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #020617;
+      overflow: hidden;
+      perspective: 1500px;
+    }
+    .perspective-2000 {
+      perspective: 2000px;
+    }
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    
+    .physical-flip {
+      transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes glitch-flicker {
+      0%, 100% { opacity: 1; filter: brightness(1); transform: scale(1); }
+      5% { opacity: 0.2; filter: brightness(2); transform: scale(0.98); }
+      10% { opacity: 1; filter: brightness(1); }
+      15% { opacity: 0.5; transform: skewX(2deg); }
+      20% { opacity: 1; transform: skewX(0); }
+    }
+
+    .animate-glitch {
+      animation: glitch-flicker 3s infinite;
+    }
+
+    @keyframes shuffle-burst {
+      0% { transform: translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1); filter: brightness(1); }
+      30% { transform: translateZ(250px) rotateX(25deg) rotateY(-15deg) scale(1.2); filter: brightness(2) contrast(1.2); }
+      100% { transform: translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1); filter: brightness(1); }
+    }
+
+    .animate-shuffle-active {
+      animation: shuffle-burst 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    @keyframes board-shake {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-4px) translateY(2px) rotate(-0.5deg); }
+      20%, 40%, 60%, 80% { transform: translateX(4px) translateY(-2px) rotate(0.5deg); }
+    }
+
+    .animate-board-shake {
+      animation: board-shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    @keyframes combo-glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.4); filter: brightness(1); }
+      50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.8); filter: brightness(1.2); }
+    }
+    .animate-combo-glow {
+      animation: combo-glow 1s ease-in-out infinite;
+    }
+
+    .scan-lines {
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(255,255,255,0.02) 50%);
+      background-size: 100% 4px;
+      pointer-events: none;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
