@@ -41,3 +41,23 @@ This project is now configured for Capacitor via [`capacitor.config.ts`](capacit
    - Xcode: `npm run cap:open:ios`
 
 > Note: iOS builds require macOS + Xcode.
+
+### Troubleshooting
+
+If you get `npm ERR! Missing script: "cap:add:android"`:
+
+1. Make sure you are in the same project folder that contains this `package.json`.
+2. Confirm the script exists:
+   `npm run`
+3. Pull the latest changes and reinstall dependencies:
+   `npm install`
+4. Use either command style (both are supported now):
+   - `npm run cap:add:android`
+   - `npm run cap-add-android`
+5. You can always run Capacitor directly if npm scripts are out of date:
+   `npx cap add android`
+
+If Android already exists, use:
+- `npm run cap:sync` (or `npm run cap-sync`)
+- `npm run cap:open:android` (or `npm run cap-open-android`)
+
